@@ -145,7 +145,7 @@ class MemoryService:
             summary = None
             while retries < max_retries:
                 try:
-                    system_prompt_summarize = "请将以下对话记录总结为最重要的几条长期记忆，总结内容应包含地点，事件，人物（如果对话记录中有的话）用中文简要表述："
+                    system_prompt_summarize = "请将以下【短期对话记录】总结为【新的】最重要的几条长期记忆点，【不要重复已知信息】，总结内容应包含地点，事件，人物（如果对话记录中有的话）用中文简要表述："
                     llm = self._get_llm_client()
                     summary = llm.get_response(
                         message=dialog_to_summarize,
